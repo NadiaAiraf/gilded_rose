@@ -55,25 +55,3 @@ class GildedRose
     end
   end
 end
-
-class Item
-  attr_accessor :name, :sell_in, :quality
-
-  def initialize(name, sell_in, quality)
-    @name = name
-    @sell_in = sell_in
-    @quality = quality
-  end
-
-  def to_s()
-    "#{@name}, #{@sell_in}, #{@value}"
-  end
-
-  def reduce_value
-    if @sell_in <= 0
-      @value -= 2
-    else
-      @value -= 1
-    end
-  end
-end
