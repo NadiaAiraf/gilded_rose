@@ -30,6 +30,7 @@ class GildedRose
         end
       end
 
+      #changes the sell by date
       unless NOSELLBY.include?(item.name)
         item.sell_in = item.sell_in - 1
       end
