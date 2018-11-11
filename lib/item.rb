@@ -24,6 +24,8 @@ class Item
     @sell_in -= 1
   end
 
+  private
+
   def error_cases
     test_quality
   end

@@ -4,7 +4,7 @@ describe BackstagePass do
   let(:days15) { described_class.new('15days', 15, 20) }
   let(:days8) { described_class.new('8days', 8, 20) }
   let(:days3) { described_class.new('3days', 3, 20) }
-  let(:too_late) { described_class.new('too late',-1,20) }
+  let(:too_late) { described_class.new('too late', -1, 20) }
   let(:valuable_tickets) { described_class.new('too late', 20, 50) }
 
   describe '# update_quality' do
