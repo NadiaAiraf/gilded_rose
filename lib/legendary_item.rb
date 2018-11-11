@@ -9,4 +9,8 @@ class LegendaryItem < Item
   def update_sell_in
     # does nothing
   end
+
+  def test_quality
+
+  end
 end

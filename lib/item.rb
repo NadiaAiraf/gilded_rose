@@ -2,9 +2,10 @@ class Item
   attr_accessor :name, :sell_in, :quality
 
   def initialize(name, sell_in, quality)
-    @name = name
     @sell_in = sell_in
     @quality = quality
+    @name = name
+    error_cases
   end
 
   def to_s()
@@ -21,5 +22,13 @@ class Item
 
   def update_sell_in
     @sell_in -= 1
+  end
+
+  def error_cases
+    test_quality
+  end
+
+  def test_quality
+    raise 'Quality cannot be above 50' if @quality > 50
   end
 end
