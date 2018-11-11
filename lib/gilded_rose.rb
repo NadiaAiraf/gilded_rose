@@ -4,6 +4,8 @@ class GildedRose
                     "Backstage passes to a TAFKAL80ETC concert",
                     "Sulfuras, Hand of Ragnaros"]
 
+  NOSELLBY = ["Sulfuras, Hand of Ragnaros"]
+
   def initialize(items)
     @items = items
   end
@@ -28,7 +30,7 @@ class GildedRose
         end
       end
 
-      if item.name != "Sulfuras, Hand of Ragnaros"
+      unless NOSELLBY.include?(item.name)
         item.sell_in = item.sell_in - 1
       end
 
