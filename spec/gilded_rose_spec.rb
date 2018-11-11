@@ -2,12 +2,22 @@ require 'gilded_rose'
 require 'item'
 
 describe GildedRose do
+  let(:mockItem) { double :item, update_quality: nil, update_sell_in: nil }
+  subject { described_class.new(items) }
 
   describe "#update_quality" do
-    it "does not change the name" do
-      items = [Item.new("fixme", 0, 0)]
-      GildedRose.new(items).update_quality()
-      expect(items[0].name).to eq "fixme"
+    it "calls update_quality" do
+      items = [mockItem]
+      gilded_rose = GildedRose.new(items)
+      gilded_rose.update_quality
+      expect(mockItem).to have_received(:update_quality)
+    end
+
+    it "calls update_sell_in" do
+      items = [mockItem]
+      gilded_rose = GildedRose.new(items)
+      gilded_rose.update_quality
+      expect(mockItem).to have_received(:update_sell_in)
     end
   end
 
