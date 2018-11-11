@@ -6,19 +6,19 @@ describe BackstagePass do
   let(:days3) { described_class.new('3days', 3, 20)}
 
   describe '# update_quality' do
-    it 'reduces the value of apples by 1' do
+    it 'if 15 days to sell by, increase quality by 1' do
       expect(days15.quality).to eq 20
       days15.update_quality
       expect(days15.quality).to eq 21
     end
 
-    it 'reduces the value of apples by 1' do
+    it 'if 8 days to sell by, increase quality by 2' do
       expect(days8.quality).to eq 20
       days8.update_quality
       expect(days8.quality).to eq 22
     end
 
-    it 'reduces the value of apples by 1' do
+    it 'if 3 days to sell by, increase quality by 3' do
       expect(days3.quality).to eq 20
       days3.update_quality
       expect(days3.quality).to eq 23

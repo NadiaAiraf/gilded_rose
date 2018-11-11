@@ -11,11 +11,15 @@ class Item
     "#{@name}, #{@sell_in}, #{@quality}"
   end
 
-  def reduce_quality
+  def update_quality
     if @sell_in <= 0
       @quality -= 2
     else
       @quality -= 1
     end
+  end
+
+  def update_sell_in
+    @sell_in -= 1
   end
 end
