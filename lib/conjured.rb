@@ -7,5 +7,6 @@ class Conjured < Item
     else
       @quality -= 2
     end
+    @quality = 0 if @quality < 0
   end
 end

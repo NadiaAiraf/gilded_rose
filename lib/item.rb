@@ -18,6 +18,8 @@ class Item
     else
       @quality -= 1
     end
+
+    @quality = 0 if @quality < 0
   end
 
   def update_sell_in
