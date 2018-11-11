@@ -1,16 +1,18 @@
 class GildedRose
 
+  NONPERISHABLES = ["Aged Brie",
+                    "Backstage passes to a TAFKAL80ETC concert",
+                    "Sulfuras, Hand of Ragnaros"]
+
   def initialize(items)
     @items = items
   end
 
   def update_quality()
     @items.each do |item|
-      if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
+      if !(NONPERISHABLES.include?(item.name))
         if item.value > 0
-          if item.name != "Sulfuras, Hand of Ragnaros"
-            item.value -= 1
-          end
+          item.value -= 1
         end
       else
         if item.value < 50
@@ -25,9 +27,11 @@ class GildedRose
           end
         end
       end
+
       if item.name != "Sulfuras, Hand of Ragnaros"
         item.sell_in = item.sell_in - 1
       end
+
       if item.sell_in < 0
         if item.name != "Aged Brie"
           if item.name != "Backstage passes to a TAFKAL80ETC concert"
@@ -45,6 +49,7 @@ class GildedRose
           end
         end
       end
+
     end
   end
 end
@@ -60,5 +65,13 @@ class Item
 
   def to_s()
     "#{@name}, #{@sell_in}, #{@value}"
+  end
+
+  def reduce_value
+    if @sell_in <= 0
+      @value -= 2
+    else
+      @value -= 1
+    end
   end
 end
